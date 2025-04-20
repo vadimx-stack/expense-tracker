@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет расходов и доходов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="app-container">
+            <header>
+                <h1>Учет <span>финансов</span></h1>
+                <div class="balance-container">
+                    <div class="balance-header">Текущий баланс</div>
+                    <div class="balance" id="balance">₽0.00</div>
+                </div>
+            </header>
+
+            <div class="summary-container">
+                <div class="summary-card income">
+                    <h3>Доходы</h3>
+                    <p id="income-total">₽0.00</p>
+                </div>
+                <div class="summary-card expenses">
+                    <h3>Расходы</h3>
+                    <p id="expense-total">₽0.00</p>
+                </div>
+            </div>
+
+            <div class="add-transaction">
+                <h2>Добавить транзакцию</h2>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="transaction-name">Название</label>
+                        <input type="text" id="transaction-name" placeholder="Название транзакции" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="transaction-amount">Сумма</label>
+                        <input type="number" id="transaction-amount" placeholder="Сумма" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="transaction-type">Тип</label>
+                        <select id="transaction-type" required>
+                            <option value="income">Доход</option>
+                            <option value="expense">Расход</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="transaction-category">Категория</label>
+                        <select id="transaction-category" required>
+                            <option value="salary">Зарплата</option>
+                            <option value="food">Питание</option>
+                            <option value="transport">Транспорт</option>
+                            <option value="entertainment">Развлечения</option>
+                            <option value="shopping">Покупки</option>
+                            <option value="housing">Жилье</option>
+                            <option value="utilities">Коммунальные услуги</option>
+                            <option value="healthcare">Здоровье</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="transaction-date">Дата</label>
+                        <input type="date" id="transaction-date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Добавить</button>
+                </form>
+            </div>
+
+            <div class="transactions-section">
+                <div class="section-header">
+                    <h2>История</h2>
+                    <div class="filter-container">
+                        <select id="filter-type">
+                            <option value="all">Все</option>
+                            <option value="income">Доходы</option>
+                            <option value="expense">Расходы</option>
+                        </select>
+                    </div>
+                </div>
+                <ul class="transactions-list" id="transactions-list">
+                    <!-- Список транзакций будет добавлен с помощью JavaScript -->
+                </ul>
+            </div>
+
+            <div class="chart-container">
+                <h2>Статистика расходов</h2>
+                <div class="chart" id="expense-chart">
+                    <!-- График будет добавлен с помощью JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <p>Транзакция сохранена</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
